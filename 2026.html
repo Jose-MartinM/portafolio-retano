@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retano | Contacto</title>
+    <title>Retano | 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="contact-page">
+<body>
 
 <header>
     <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Marisol Retano</a></div>
@@ -20,29 +20,32 @@
     </nav>
 </header>
 
-<main class="contact-main">
-    <div class="contact-wrapper">
+<main>
+    <section class="gallery">
 
-        <div class="email-section">
-            <p class="intro-text">Para consultas, adquisiciones o colaboraciones:</p>
-
-            <p class="contact-email-text">
-                marisolmrz@icloud.com
-            </p>
-
-            <p class="contact-email-text">
-                marisolretano@hotmail.com
-            </p>
+        <div class="item">
+            <img src="imagenes/obra201.jpg" alt="Recuerdos de una tarde en silencio n.1">
+            <div class="overlay">
+                <span>
+                    Recuerdos de una tarde en silencio n.1<br>
+                    Óleo sobre imprimación en minagris<br>
+                    18.5 x 11 cm
+                </span>
+            </div>
         </div>
 
-        <div class="social-section">
-            <a href="https://www.instagram.com/agrimpoem/" target="_blank" class="instagram-link">
-                <img src="imagenes/instagram.png" alt="Instagram Retano" class="social-icon">
-            </a>
-            <p class="social-label">Instagram</p>
+        <div class="item">
+            <img src="imagenes/obra202.jpg" alt="Recuerdos de una tarde en silencio n.2">
+            <div class="overlay">
+                <span>
+                    Recuerdos de una tarde en silencio n.2<br>
+                    Óleo sobre imprimación en minagris<br>
+                    18.5 x 11 cm
+                </span>
+            </div>
         </div>
 
-    </div>
+    </section>
 </main>
 
 <footer>
@@ -52,6 +55,7 @@
 </footer>
 
 <script>
+    /* Seguridad: Bloqueo de clic derecho y arrastre */
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 </script>
