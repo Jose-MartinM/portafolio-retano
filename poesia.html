@@ -5,63 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marisol Retano | Poesía</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* ESTILOS INTERNOS PARA LA GALERÍA DE POEMAS */
-
-        .poetry-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos columnas */
-            gap: 60px;
-            padding: 40px 8% 100px 8%;
-            max-width: 1400px;
-            margin: 0 auto;
-            align-items: start;
-        }
-
-        .poem-card {
-            background-color: transparent;
-            padding: 10px;
-        }
-
-        .poem-header {
-            margin-bottom: 25px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 15px;
-        }
-
-        .poem-title {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 5px;
-            color: #000;
-        }
-
-        .poem-meta {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 11px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .poem-content {
-            font-family: 'Georgia', serif;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #333;
-            text-align: left; /* Alineado a la izquierda */
-        }
-
-        /* Ajuste para móviles: Una sola columna */
-        @media (max-width: 768px) {
-            .poetry-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -158,7 +101,8 @@
 
 <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onselectstart = function() { return false; }
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+    // En poesía no hay galería interactiva, pero dejamos el script por seguridad base.
 </script>
 
 </body>

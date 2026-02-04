@@ -23,26 +23,26 @@
 <main>
     <section class="gallery">
 
-        <div class="item">
-            <img src="imagenes/obra102.jpg" alt="Obra 102">
-            <div class="overlay">
-                <span>
-                    Sin título<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15cm
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra101.jpg" alt="Margarita o Antónimo de amarillo">
+        <div class="item item-large">
+            <img src="imagenes/margarita.jpg" alt="Margarita o Antónimo de amarillo">
             <div class="overlay">
                 <span>
                     No.5<br>
                     Margarita o Antónimo de amarillo<br>
                     Óleo<br>
                     12.5 x 21.2 cm<br>
+                    2024
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/sintitulo.jpg" alt="Sin título">
+            <div class="overlay">
+                <span>
+                    Sin título<br>
+                    Óleo sobre cartón con tela<br>
+                    12 x 15 cm<br>
                     2024
                 </span>
             </div>
@@ -60,6 +60,18 @@
 <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+            } else {
+                items.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
 </script>
 
 </body>
