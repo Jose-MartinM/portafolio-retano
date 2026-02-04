@@ -20,11 +20,14 @@ body {
     display: flex;
     flex-direction: column;
 
-    /* SEGURIDAD GLOBAL: Bloquea la selección en todo el sitio... */
+    /* SEGURIDAD GLOBAL: Bloquea la selección en todo el sitio */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    /* Evita el parpadeo azul al tocar en móviles */
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================================
@@ -41,11 +44,11 @@ header {
     z-index: 100;
 }
 
-/* LOGO: Actualizado a Times New Roman y más elegante */
+/* LOGO: Times New Roman, elegante */
 .logo {
     font-family: 'Times New Roman', Times, serif;
     font-size: 34px;
-    font-weight: 400; /* Normal, no negrita */
+    font-weight: 400;
     letter-spacing: 0.5px;
 }
 
@@ -85,7 +88,7 @@ main {
     margin: 0 auto;
 }
 
-/* CLASE NUEVA: Para hacer obras grandes (ocupa 2 columnas) */
+/* CLASE PARA OBRAS GRANDES (Margarita) */
 @media (min-width: 769px) {
     .item-large {
         grid-column: span 2;
@@ -99,7 +102,7 @@ main {
     width: 100%;
 }
 
-/* Escudo protector sobre imágenes */
+/* Escudo protector invisible */
 .item::after {
     content: "";
     position: absolute;
@@ -116,7 +119,7 @@ main {
     height: auto;
     display: block;
     transition: opacity 0.4s ease, filter 0.4s ease;
-    pointer-events: none;
+    pointer-events: none; /* Evita arrastrar la imagen */
     -webkit-touch-callout: none;
 }
 
@@ -142,16 +145,21 @@ main {
     color: #1a1a1a;
 }
 
-.item:hover img {
+/* --- INTERACCIÓN (Mouse y Toque en Móvil) --- */
+/* Se activa si pasas el mouse (:hover) O si tiene la clase .active (toque) */
+
+.item:hover img,
+.item.active img {
     opacity: 0.2;
 }
 
-.item:hover .overlay {
+.item:hover .overlay,
+.item.active .overlay {
     opacity: 1;
 }
 
 /* =========================================
-   4. SECCIÓN POESÍA (GRID)
+   4. SECCIÓN POESÍA
    ========================================= */
 .poetry-grid {
     display: grid;
@@ -192,7 +200,7 @@ main {
 }
 
 .poem-content {
-    font-family: 'Georgia', serif; /* Fuente literaria */
+    font-family: 'Georgia', serif;
     font-size: 16px;
     line-height: 1.7;
     color: #333;
@@ -200,7 +208,7 @@ main {
 }
 
 /* =========================================
-   5. SECCIÓN CV (TIMELINE)
+   5. SECCIÓN CV
    ========================================= */
 .cv-container {
     max-width: 800px;
@@ -251,7 +259,7 @@ main {
 }
 
 .cv-year {
-    width: 110px; /* Un poco más de espacio para fechas largas */
+    width: 110px;
     font-weight: bold;
     font-size: 14px;
     color: #1a1a1a;
@@ -273,7 +281,7 @@ main {
 }
 
 /* =========================================
-   6. SECCIÓN CONTACTO (ACTUALIZADA)
+   6. SECCIÓN CONTACTO
    ========================================= */
 .contact-page {
     display: flex;
@@ -305,15 +313,13 @@ main {
     letter-spacing: 1px;
 }
 
-/* EXCEPCIÓN: TEXTO SELECCIONABLE PARA CORREOS */
+/* TEXTO SELECCIONABLE PARA CORREOS */
 .contact-email-text {
     display: block;
     font-size: clamp(20px, 4vw, 32px);
     color: #1a1a1a;
     letter-spacing: -0.5px;
     margin-bottom: 15px;
-
-    /* Permite seleccionar y copiar SOLO esto */
     cursor: text;
     -webkit-user-select: text;
     -moz-user-select: text;
@@ -332,9 +338,8 @@ main {
     margin-right: auto;
 }
 
-/* ICONO INSTAGRAM: Tamaño reducido a 20px */
 .social-icon {
-    width: 20px;
+    width: 20px; /* Tamaño minimalista */
     height: auto;
     opacity: 0.8;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -361,7 +366,7 @@ footer {
     flex-shrink: 0;
 }
 
-/* FIRMA: Tamaño sutil (80px) e interactiva */
+/* FIRMA */
 .signature-icon {
     width: 80px;
     height: auto;
@@ -382,7 +387,6 @@ footer {
     header { flex-direction: column; gap: 25px; padding: 40px 5%; }
     nav a { margin: 0 10px; }
 
-    /* En móvil todo es 1 columna, incluso los items "large" */
     .gallery, .poetry-grid { grid-template-columns: 1fr; gap: 40px; }
 
     .cv-row { flex-direction: column; margin-bottom: 30px; }

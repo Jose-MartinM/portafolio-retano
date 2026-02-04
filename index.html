@@ -134,8 +134,26 @@
 </footer>
 
 <script>
+    /* 1. SEGURIDAD (Bloqueo de click derecho y arrastre) */
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+
+    /* 2. LÓGICA PARA CELULARES (Toque para ver ficha) */
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Si la obra que tocaste ya estaba abierta, la cerramos (toggle)
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+            } else {
+                // Si estaba cerrada: Primero cerramos TODAS las demás
+                items.forEach(i => i.classList.remove('active'));
+                // Y abrimos (activamos) solo la que tocaste
+                this.classList.add('active');
+            }
+        });
+    });
 </script>
 
 </body>
